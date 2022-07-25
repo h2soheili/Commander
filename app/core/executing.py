@@ -20,8 +20,6 @@ def run_app(settings: Settings):
 
 
 def generate_process_target(**kwargs):
-    print('-------DDDDDD')
-    print(kwargs)
     ticker_key = kwargs.get('ticker_key')
     thread_dict: Dict[int, ThreadManager] = dict()
 

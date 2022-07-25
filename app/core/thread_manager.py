@@ -1,3 +1,5 @@
+import os
+import threading
 from threading import Thread
 from app.enums import StrategyTypes
 
@@ -15,7 +17,11 @@ class ThreadManager:
 
     def run(self):
         self.thread.start()
+        print('_________________________')
         print(f"thread {self.thread_name} process:{self.process_name} started")
+        print(f"process id: {os.getpid()}")
+        print(f"thread id: {threading.get_native_id()}")
+        print('_________________________')
 
     def finish(self):
         self.thread.join()
