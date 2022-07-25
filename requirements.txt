@@ -1,0 +1,13 @@
+aiohttp==3.8.1
+fastapi==0.74.1
+python-dateutil==2.8.2
+python-dotenv==0.19.2
+python-jose==3.3.0
+python-multipart==0.0.5
+SQLAlchemy==1.4.31
+aiokafka~=0.7.2
+pandas==1.4.1
+structlog==21.5.0
+starlette==0.17.1
+uvicorn==0.17.5
+pydantic==1.9.0
