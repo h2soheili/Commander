@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     # e.g: '["http://localhost", "http://localhost:4200", "http://localhost:3000", \
     # "http://localhost:8080", "http://local.dockertoolbox.tiangolo.com"]'
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
+    KAFKA_URL: Optional[str] = 'localhost:9092'
 
     @validator("BACKEND_CORS_ORIGINS", pre=True)
     def assemble_cors_origins(cls, v: Union[str, List[str]]) -> Union[List[str], str]:
@@ -62,8 +63,6 @@ class Settings(BaseSettings):
 
     @validator("PROJECT_NAME")
     def get_project_name(cls, v: Optional[str], values: Dict[str, Any]) -> str:
-        print('------------------------------------------------------------------------------------------------------')
-        print(values)
         if not v:
             return values["PROJECT_NAME"]
         return v
@@ -78,6 +77,12 @@ class Settings(BaseSettings):
         in_range = list(value.split('-'))
         range_tuple = tuple([int(in_range[0]), int(in_range[1])])
         return range_tuple
+
+    @validator("KAFKA_URL")
+    def get_kafka_url(cls, v: Optional[str], values: Dict[str, Any]):
+        if not v:
+            return values["KAFKA_URL"]
+        return v
 
     class Config:
         env_file = ".env"

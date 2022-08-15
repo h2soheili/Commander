@@ -22,3 +22,14 @@ class EventTypes(Enum):
 class KafkaTopics(Enum):
     OrderExecution = 'ir.mofid.sub.order.execution'
     MarketData = 'ir.mofid.sub.market.data'
+    StopTickerWatcher = 'ir.mofid.sub.ticker.watcher.stop'
+    StartTickerWatcher = 'ir.mofid.sub.ticker.watcher.start'
+    StopStrategy = 'ir.mofid.sub.strategy.stop'
+    StartStrategy = 'ir.mofid.sub.strategy.start'
+
+
+class TableNames(Enum):
+    OrderTable = 'Order'
+    TickerTable = 'Ticker'
+    ProcessTable = 'Process'
+    ProcessTickerTable = 'ProcessTicker'
